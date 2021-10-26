@@ -17,7 +17,7 @@ if(number > highestNumber){
 }
 console.log(highestNumber)
 // 5. Find the lowest number in the array and print it to the console using console.log()
-let lowestNumber = numbers[4]
+let lowestNumber = numbers[0]
 
 for(let number of numbers)
 if(number < lowestNumber){
@@ -25,20 +25,20 @@ if(number < lowestNumber){
 }
 console.log(lowestNumber)
 // 6. Find the even numbers in the array and print them to the console using console.log()
-for(let i=0 ; i <numbers.length ; i++){
+for(let number of numbers){
     if(numbers[i] % 2==0){
         console.log(`Even number is ${numbers[i]}`)
     }
 }
 // 7. Find the odd numbers in the array and print them to the console using console.log()
 
-for( let i=0 ; i <numbers.length ; i++){
+for(let number of numbers){
     if(numbers[i] % 2!==0){
         console.log(`odd number is ${numbers[i]}`)
     }
 }
 // 8. Find the numbers in the array that is divisible by 5 and print them to the console using console.log()
-for(let i=0 ; i <numbers.length ; i++){
+for(let number of numbers){
     if(numbers[i] % 5==0){
         console.log(`divisible by 5 is ${numbers[i]}`)
     }
@@ -46,7 +46,7 @@ for(let i=0 ; i <numbers.length ; i++){
 // 9. Log all the element of the array one by one
 console.log(`${numbers}`)
 // 10. Find all the number in the array that is divisible by 3
-for(let i=0 ; i <numbers.length ; i++){
+for(let number of numbers){
     if(numbers[i] % 3==0){
         console.log(`divisible by 3 is ${numbers[i]}`)
     }
