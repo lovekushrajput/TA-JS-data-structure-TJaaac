@@ -5,25 +5,25 @@ let userIds = [1230, 234, 1278, 984, 763, 900];
 // 1. Add all the values of numbers and userIds array into the new newly created array named `collection`
 
 let collection = []
-for(let num of numbers){
-  collection.push[num];
+for(let number of numbers){
+  collection.push[number];
 }
-for(let Id of userIds){
-  collection.push[Id];
+for(let userId of userIds){
+  collection.push[userId];
 }
 console.log(collection)
 // 2. Add all the even numbers from both arrays numbers and userIds into a newly created array named `evenCollection`
 let evenCollection = []
-for(let num of collection){
-  if(num % 2 == 0){
-    evenCollection.push[num]
+for(let number of collection){
+  if(number % 2 == 0){
+    evenCollection.push[number]
   }
 }
 // 3. Add all the odd numbers from both arrays numbers and userIds into a newly created array named `oddCollection`
 let oddCollection = []
-for(let num of collection){
-  if(num % 2 !== 0){
-    oddCollection.push[num]
+for(let number of collection){
+  if(number % 2 !== 0){
+    oddCollection.push[number]
   }
 }
 console.log(evenCollection,oddCollection)
