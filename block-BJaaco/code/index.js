@@ -118,7 +118,7 @@ console.log(clear(['Ryan', null, 0, 'John', 'Bran'])); ['Bran', 'John', 'Ryan']
 
 function arrayToObj(paramArr) {
   let object = {}
-  for(let i = 0 ; i< paramArr.length ; i++){
+  for(let i = 0 ; i<= paramArr.length ; i++){
     object[i]=paramArr[i]
   }
   return object
