@@ -10,12 +10,12 @@ let person2 = person;
 
 person.firstName = 'Arya';
 
-console.log(person2.firstName); // output
-console.log(person.firstName); // output
-console.log(person.lastName); // output
-console.log(person == person2); // output
-console.log(person === person2); // output
-console.log(person.lastName === person2.lastName); // output
+console.log(person2.firstName); // Arya
+console.log(person.firstName); // Arya
+console.log(person.lastName); // Doe
+console.log(person == person2); // true
+console.log(person === person2); // true
+console.log(person.lastName === person2.lastName); // true
 ```
 
 2. Write the output with reason:
@@ -37,17 +37,18 @@ let personTwo = { ...person };
 person.firstName = 'Arya';
 person.city = 'Navada';
 
-console.log(personTwo.firstName); // output
-console.log(person.firstName); // output
-console.log(personTwo.lastName); // output
-console.log(person.firstName === personTwo.firstName); // output
-console.log(person == personTwo); // output
-console.log(person === personTwo); // output
-console.log(person.address === personTwo.address); // output
-console.log(person.address == personTwo.address); // output
-console.log(personTwo.address.city); // output
-console.log(person.address.city); // output
-console.log(person.address.city == personTwo.address.city); // output
+console.log(personTwo.firstName); // 'John'
+console.log(person.firstName); // 'John'
+console.log(personTwo.lastName); // 'Doe'
+console.log(person.firstName === personTwo.firstName); // false
+console.log(person == personTwo); // false
+console.log(person === personTwo); // false
+console.log(person.address === personTwo.address); // true
+console.log(person.address == personTwo.address); // true
+// In shallow cloning only the top layer will clone and address will copy so output is true.
+console.log(personTwo.address.city); // 'San Jose'
+console.log(person.address.city); // 'San Jose'
+console.log(person.address.city == personTwo.address.city); // true
 ```
 
 3. Write the output with reason:
@@ -69,17 +70,21 @@ let personTwo = { ...person, address: { ...person.address } };
 person.firstName = 'Arya';
 person.city = 'Navada';
 
-console.log(personTwo.firstName); // output
-console.log(person.firstName); // output
-console.log(personTwo.lastName); // output
-console.log(person.firstName === personTwo.firstName); // output
-console.log(person == personTwo); // output
-console.log(person === personTwo); // output
-console.log(person.address === personTwo.address); // output
-console.log(person.address == personTwo.address); // output
-console.log(personTwo.address.city); // output
-console.log(person.address.city); // output
-console.log(person.address.city == personTwo.address.city); // output
+console.log(personTwo.firstName); // 'John'
+console.log(person.firstName); // 'Arya'
+// because person.firstName has been updated to "Arya"
+console.log(personTwo.lastName); // 'Doe'
+console.log(person.firstName === personTwo.firstName); // false
+// address of person.firstName and personTwo.firstName are different different so the output is false
+console.log(person == personTwo); // false
+console.log(person === personTwo); // false
+// address of person and personTwo are not same
+console.log(person.address === personTwo.address); // false
+console.log(person.address == personTwo.address); // false
+// addresss is different
+console.log(personTwo.address.city); // 'San Jose'
+console.log(person.address.city); // 'Navada'
+console.log(person.address.city == personTwo.address.city); // false
 ```
 
 4. Clone the `blogs` variable into a new variable named `clonedBlogs`
@@ -103,7 +108,12 @@ let blogs = [
   },
 ];
 
+
 // Your code goes here
+let cloneBlogs = {
+  ...blogs, 
+}
+
 ```
 
 5. Clone the `question` variable into a new variable named `questionClone`
@@ -129,6 +139,9 @@ var questions = [
 ];
 
 // Your code goes here
+let questionClone = {
+  ...questions, question: {...question}
+}
 ```
 
 6. Clone the `allBlogs` variable into a new variable named `allBlogsClone`
@@ -156,6 +169,7 @@ var allBlogs = {
 };
 
 // Your code goes here
+let allBlo
 ```
 
 7. Clone the `person` variable into a new variable named `clonedPerson`
