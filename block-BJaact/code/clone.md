@@ -37,17 +37,17 @@ let personTwo = { ...person };
 person.firstName = 'Arya';
 person.city = 'Navada';
 
-console.log(personTwo.firstName); // 'John'
-console.log(person.firstName); // 'John'
-console.log(personTwo.lastName); // 'Doe'
+console.log(personTwo.firstName); // John
+console.log(person.firstName); // Arya
+console.log(personTwo.lastName); // Doe
 console.log(person.firstName === personTwo.firstName); // false
 console.log(person == personTwo); // false
 console.log(person === personTwo); // false
 console.log(person.address === personTwo.address); // true
 console.log(person.address == personTwo.address); // true
 // In shallow cloning only the top layer will clone and address will copy so output is true.
-console.log(personTwo.address.city); // 'San Jose'
-console.log(person.address.city); // 'San Jose'
+console.log(personTwo.address.city); // Navada
+console.log(person.address.city); // Navada
 console.log(person.address.city == personTwo.address.city); // true
 ```
 
@@ -70,10 +70,10 @@ let personTwo = { ...person, address: { ...person.address } };
 person.firstName = 'Arya';
 person.city = 'Navada';
 
-console.log(personTwo.firstName); // 'John'
-console.log(person.firstName); // 'Arya'
+console.log(personTwo.firstName); // John
+console.log(person.firstName); // Arya
 // because person.firstName has been updated to "Arya"
-console.log(personTwo.lastName); // 'Doe'
+console.log(personTwo.lastName); // Doe
 console.log(person.firstName === personTwo.firstName); // false
 // address of person.firstName and personTwo.firstName are different different so the output is false
 console.log(person == personTwo); // false
@@ -82,9 +82,10 @@ console.log(person === personTwo); // false
 console.log(person.address === personTwo.address); // false
 console.log(person.address == personTwo.address); // false
 // addresss is different
-console.log(personTwo.address.city); // 'San Jose'
-console.log(person.address.city); // 'Navada'
+console.log(personTwo.address.city); // San Jose
+console.log(person.address.city); // Navada
 console.log(person.address.city == personTwo.address.city); // false
+// pointing to different address
 ```
 
 4. Clone the `blogs` variable into a new variable named `clonedBlogs`
@@ -110,9 +111,11 @@ let blogs = [
 
 
 // Your code goes here
-let cloneBlogs = {
-  ...blogs, 
-}
+let cloneBlogs = [
+  {...blogs[0]},
+  {...blogs[0]},
+  {...blogs[0]},  
+]
 
 ```
 
@@ -139,9 +142,12 @@ var questions = [
 ];
 
 // Your code goes here
-let questionClone = {
-  ...questions, question: {...question}
-}
+let questionClone = [
+  {...questions[0], resposes: {...question[0].responses}},
+  {...question[1], resposes: {...question[1].responses}},
+  {...question[2], resposes: {...question[2].responses}},
+]
+ 
 ```
 
 6. Clone the `allBlogs` variable into a new variable named `allBlogsClone`
@@ -169,7 +175,14 @@ var allBlogs = {
 };
 
 // Your code goes here
-let allBlo
+let allBlogsclone = {
+  ...allBlogs,
+   author: {...allBlogs.author}, 
+   comments: [
+     {...allBlogs.comments[0]},
+     {...allBlogs.comments[1]}
+     ]
+     } 
 ```
 
 7. Clone the `person` variable into a new variable named `clonedPerson`
@@ -203,15 +216,16 @@ let person = [
 ];
 
 // Your code goes here
+let clonedPerson = JSON.parse(JSON strigfy(person));
 ```
 
 8. Write a function named `cloneObject` that accepts an object and returns the clone of the object
 
 ```js
-function cloneObject() {
-  // your code
+function cloneObject(obj) {
+  return JSON.parse(JSON strigfy(obj));
 }
-
+cloneObject();
 // Run the test below to check your function
 
 let user = {
